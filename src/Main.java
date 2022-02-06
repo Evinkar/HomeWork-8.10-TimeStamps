@@ -11,17 +11,17 @@ public class Main {
 
 
     public static void main(String[] args) {
-        System.out.println(collectBirthdays(1989,03,30));
+        System.out.println(collectBirthdays(1989, 03, 30));
         System.out.println(getPeriodFromBirthday());
 
 
     }
 
     public static String collectBirthdays(int year, int month, int day) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern ("dd.MM.yyyy - EEEE");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy - EEEE");
         birthday = LocalDate.of(year, month, day);
         String text = "";
-        do{
+        do {
             //System.out.println(count + " - " + formatter.format(birthday));
             text = text + count + " - " + formatter.format(birthday) + System.lineSeparator();
             birthday = birthday.plusYears(1);
@@ -31,14 +31,15 @@ public class Main {
 
         return text;
     }
-    public static String getPeriodFromBirthday(){
 
-        long timeFlowYears= System.currentTimeMillis() / 31536000000L;
-        System.out.println(timeFlowYears);
+    public static String getPeriodFromBirthday() {
+
+        long timeFlowYears = System.currentTimeMillis() / 31536000000L;
+
         long timeFlowMonths = (System.currentTimeMillis() % 31536000000L) / 241920000;
-        System.out.println(timeFlowMonths);
+
         long timeFlowDays = ((System.currentTimeMillis() % 31536000000L) % 241920000) / 86400000;
-        System.out.println(timeFlowDays);
+
         return ("years: " + timeFlowYears + " months: " + timeFlowMonths + " days: " + timeFlowDays);
 
     }
